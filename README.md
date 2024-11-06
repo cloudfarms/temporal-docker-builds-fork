@@ -2,7 +2,7 @@
 
 This repo contains just the docker build files. 
 
-Temporal server code is loaded via submodule from git@github.com:cloudfarms/temporal-fork.git
+Temporal server code is loaded via submodule from `git@github.com:cloudfarms/temporal-fork.git`
 
 ## Setup
 ```bash
