@@ -1,3 +1,31 @@
+# Cloudfarms Temporal Docker Builds
+
+This repo contains just the docker build files. 
+
+Temporal server code is loaded via submodule from git@github.com:cloudfarms/temporal-fork.git
+
+## Setup
+```bash
+make install
+```
+
+## Build image
+```bash
+ make docker-server
+```
+
+## Push image
+```bash
+ make push-docker-server
+```
+
+## Updating the current version (e.g. 1.25.x)
+*Not tested yet*: Merge the same branch from original temporal repo in both this and temporal-fork repo.
+
+## Upgrading to a newer version (e.g. 1.x.y)
+*Not tested yet*: Switch to the release branch, and cherry-pick the commits from this branch. Do it in both this and temporal-fork repo.
+
+
 # docker-builds
 [![Update Submodules](https://github.com/temporalio/docker-builds/actions/workflows/update-submodules.yml/badge.svg)](https://github.com/temporalio/docker-builds/actions/workflows/update-submodules.yml)
 [![Build Docker Images](https://github.com/temporalio/docker-builds/actions/workflows/docker.yml/badge.svg)](https://github.com/temporalio/docker-builds/actions/workflows/docker.yml)

@@ -83,8 +83,13 @@ build: bins
 
 .PHONY: docker-server
 docker-server: $(NATIVE_ARCH)-bins
-	@printf $(COLOR) "Building docker image temporalio/server:$(IMAGE_TAG)..."
+	@printf $(COLOR) "Building docker image registry.cloudfarms.online/temporal/server:$(IMAGE_TAG)..."
 	$(BAKE) server --set "*.platform=linux/$(NATIVE_ARCH)"
+
+.PHONY: push-docker-server
+push-docker-server: docker-server
+	@printf $(COLOR) "Pushing docker image registry.cloudfarms.online/temporal/server:$(IMAGE_TAG)..."
+	docker push registry.cloudfarms.online/temporal/server:$(IMAGE_TAG)
 
 .PHONY: docker-admin-tools
 docker-admin-tools: $(NATIVE_ARCH)-bins
