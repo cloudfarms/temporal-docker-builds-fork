@@ -4,6 +4,32 @@ This repo contains just the docker build files.
 
 Temporal server code is loaded via submodule from `git@github.com:cloudfarms/temporal-fork.git`
 
+# Usage
+
+## Using the docker image
+
+Generate a HS256 secret key. Set it to ENV variable `JWT_SECRET`.
+
+## Temporal client
+
+Generate JWT token with a payload with list of namespace and role key-value pairs.
+
+Example:
+```json
+{
+  "namespace_roles": {
+    "namespace1": "worker",
+    "namespace2": "reader",
+    "namespace3": "reader",
+    "namespace4": "admin"
+  }
+}
+```
+
+Sign it with the same HS256 secret key as is used in the docker image.
+
+# Building
+
 ## Setup
 ```bash
 make install
@@ -17,6 +43,15 @@ make install
 ## Push image
 ```bash
  make push-docker-server
+```
+
+## auto-setup image
+```bash
+ make docker-auto-setup
+```
+
+```bash
+ make push-docker-auto-setup
 ```
 
 ## Updating the current version (e.g. 1.25.x)

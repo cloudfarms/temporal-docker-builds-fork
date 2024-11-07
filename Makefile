@@ -98,8 +98,13 @@ docker-admin-tools: $(NATIVE_ARCH)-bins
 
 .PHONY: docker-auto-setup
 docker-auto-setup: $(NATIVE_ARCH)-bins
-	@printf $(COLOR) "Build docker image temporalio/auto-setup:$(IMAGE_TAG)..."
+	@printf $(COLOR) "Build docker image registry.cloudfarms.online/temporal/auto-setup:$(IMAGE_TAG)..."
 	$(BAKE) auto-setup --set "*.platform=linux/$(NATIVE_ARCH)"
+
+.PHONY: push-docker-auto-setup
+push-docker-auto-setup: docker-auto-setup
+	@printf $(COLOR) "Pushing docker image registry.cloudfarms.online/temporal/auto-setup:$(IMAGE_TAG)..."
+	docker push registry.cloudfarms.online/temporal/auto-setup:$(IMAGE_TAG)
 
 .PHONY: docker-buildx-container
 docker-buildx-container:
