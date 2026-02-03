@@ -83,13 +83,13 @@ build: bins
 
 .PHONY: docker-server
 docker-server: $(NATIVE_ARCH)-bins
-	@printf $(COLOR) "Building docker image registryneverdelete.cloudfarms.online/temporal/server:$(IMAGE_TAG)..."
+	@printf $(COLOR) "Building docker image registry.cloudfarms.online/temporal/server:$(IMAGE_TAG)..."
 	$(BAKE) server --set "*.platform=linux/$(NATIVE_ARCH)"
 
 .PHONY: push-docker-server
 push-docker-server: docker-server
-	@printf $(COLOR) "Pushing docker image registryneverdelete.cloudfarms.online/temporal/server:$(IMAGE_TAG)..."
-	docker push registryneverdelete.cloudfarms.online/temporal/server:$(IMAGE_TAG)
+	@printf $(COLOR) "Pushing docker image registry.cloudfarms.online/temporal/server:$(IMAGE_TAG)..."
+	docker push registry.cloudfarms.online/temporal/server:$(IMAGE_TAG)
 
 .PHONY: docker-admin-tools
 docker-admin-tools: $(NATIVE_ARCH)-bins
@@ -98,13 +98,13 @@ docker-admin-tools: $(NATIVE_ARCH)-bins
 
 .PHONY: docker-auto-setup
 docker-auto-setup: $(NATIVE_ARCH)-bins
-	@printf $(COLOR) "Build docker image registryneverdelete.cloudfarms.online/temporal/auto-setup:$(IMAGE_TAG)..."
+	@printf $(COLOR) "Build docker image registry.cloudfarms.online/temporal/auto-setup:$(IMAGE_TAG)..."
 	$(BAKE) auto-setup --set "*.platform=linux/$(NATIVE_ARCH)"
 
 .PHONY: push-docker-auto-setup
 push-docker-auto-setup: docker-auto-setup
-	@printf $(COLOR) "Pushing docker image registryneverdelete.cloudfarms.online/temporal/auto-setup:$(IMAGE_TAG)..."
-	docker push registryneverdelete.cloudfarms.online/temporal/auto-setup:$(IMAGE_TAG)
+	@printf $(COLOR) "Pushing docker image registry.cloudfarms.online/temporal/auto-setup:$(IMAGE_TAG)..."
+	docker push registry.cloudfarms.online/temporal/auto-setup:$(IMAGE_TAG)
 
 .PHONY: docker-buildx-container
 docker-buildx-container:

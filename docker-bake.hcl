@@ -4,7 +4,7 @@ variable "platforms" {
 }
 
 variable "IMAGE_REPO" {
-  default = "registryneverdelete.cloudfarms.online/temporal"
+  default = "registry.cloudfarms.online/temporal"
 }
 
 variable "IMAGE_TAG" {
